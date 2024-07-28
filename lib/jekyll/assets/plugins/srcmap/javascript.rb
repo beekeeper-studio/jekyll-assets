@@ -10,7 +10,7 @@ module Jekyll
         next o unless t == "application/javascript"
 
         env = i[:environment]
-        asset = env.find_asset!(i[:filename], pipeline: :source)
+        asset = env.find_asset(i[:filename], pipeline: :source)
         path = asset.filename.sub(env.jekyll.in_source_dir + "/", "")
         url = SrcMap.map_path(asset: asset, env: env)
         url = env.prefix_url(url)
